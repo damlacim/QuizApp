@@ -11,13 +11,20 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var buttonFalse: UIButton!
     @IBOutlet weak var buttonTrue: UIButton!
+    @IBOutlet weak var buttonFalse: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
+    
+    @IBAction func answerButtonPressed(_ sender: UIButton) {
+    }
+    
+
+    
+    
 
 
 }
