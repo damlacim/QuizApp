@@ -7,10 +7,14 @@
 
 import Foundation
 
-struct Quenstions {
+struct Questions {
     
     let text : String
     let answer : String
+    
+    init(q: String, a: String){
+        
+    }
     
     
     
