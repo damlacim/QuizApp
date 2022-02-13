@@ -12,8 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var buttonTrue: UIButton!
-    @IBOutlet weak var buttonFalse: UIButton!
+    @IBOutlet weak var buttonC1: UIButton!
+    @IBOutlet weak var buttonC2: UIButton!
+    @IBOutlet weak var buttonC3: UIButton!
     
    var quizLogic = Logic()
     
@@ -48,19 +49,20 @@ class ViewController: UIViewController {
     
     @objc func updateUI() {
         questionLabel.text = quizLogic.getQuestionText()
+        let answerChoices = quizLogic.getAnswer()
+        buttonC1.setTitle(answerChoices[0], for: .normal)
+        buttonC2.setTitle(answerChoices[1], for: .normal)
+        buttonC3.setTitle(answerChoices[2], for: .normal)
+        
         progressBar.progress = quizLogic.getProgress()
         scoreLabel.text = "Score: \(quizLogic.getScore())"
         
-        buttonTrue.backgroundColor = UIColor.clear
-        buttonFalse.backgroundColor = UIColor.clear
+        buttonC1.backgroundColor = UIColor.clear
+        buttonC2.backgroundColor = UIColor.clear
+        buttonC3.backgroundColor = UIColor.clear
         
         
     }
-    
-
-    
-    
-
 
 }
 

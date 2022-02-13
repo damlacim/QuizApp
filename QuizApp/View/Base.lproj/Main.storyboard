@@ -25,13 +25,13 @@
                                 <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7z3-lC-hOc" userLabel="Score Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="71"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="53.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="Question Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kL0-Pl-Z9J" userLabel="Question Text">
-                                        <rect key="frame" x="0.0" y="81" width="374" height="537"/>
+                                        <rect key="frame" x="0.0" y="63.5" width="374" height="464.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="374" id="Rpv-Sw-zKO"/>
                                         </constraints>
@@ -40,31 +40,45 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sO9-9E-dgm">
-                                        <rect key="frame" x="0.0" y="628" width="374" height="80"/>
+                                        <rect key="frame" x="0.0" y="538" width="374" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="ehF-ns-2jV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="True" backgroundImage="Rectangle">
+                                        <state key="normal" title="Choice 1" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f1Y-pX-lyx"/>
+                                            <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yXw-jM-4pB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsY-1Z-RGB">
-                                        <rect key="frame" x="0.0" y="718" width="374" height="80"/>
+                                        <rect key="frame" x="0.0" y="628" width="374" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="FwN-qF-luD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="False" backgroundImage="Rectangle">
+                                        <state key="normal" title="Choice 2" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TOs-hr-818"/>
+                                            <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1GK-oa-NPW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYr-NK-KB9">
+                                        <rect key="frame" x="0.0" y="718" width="374" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="5XX-FG-vhd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Choice 3" backgroundImage="Rectangle">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FFx-4D-WXM"/>
                                         </connections>
                                     </button>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="btO-Dg-JUW">
@@ -78,7 +92,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QsY-1Z-RGB" firstAttribute="leading" secondItem="8ks-2P-sXl" secondAttribute="leading" id="0je-x4-0gz"/>
-                                    <constraint firstItem="btO-Dg-JUW" firstAttribute="top" secondItem="QsY-1Z-RGB" secondAttribute="bottom" constant="10" id="1EH-z0-c31"/>
+                                    <constraint firstAttribute="trailing" secondItem="fYr-NK-KB9" secondAttribute="trailing" id="0xe-tk-2NE"/>
+                                    <constraint firstItem="fYr-NK-KB9" firstAttribute="top" secondItem="QsY-1Z-RGB" secondAttribute="bottom" constant="10" id="3yI-C4-0Wb"/>
                                     <constraint firstAttribute="trailing" secondItem="7z3-lC-hOc" secondAttribute="trailing" id="6rl-nf-1MF"/>
                                     <constraint firstAttribute="trailing" secondItem="sO9-9E-dgm" secondAttribute="trailing" id="9ux-P6-J6w"/>
                                     <constraint firstAttribute="trailing" secondItem="QsY-1Z-RGB" secondAttribute="trailing" id="Cqk-iC-EBW"/>
@@ -88,11 +103,13 @@
                                     <constraint firstItem="7z3-lC-hOc" firstAttribute="leading" secondItem="8ks-2P-sXl" secondAttribute="leading" id="QMk-dy-bGD"/>
                                     <constraint firstItem="sO9-9E-dgm" firstAttribute="leading" secondItem="8ks-2P-sXl" secondAttribute="leading" id="TZR-gC-mCe"/>
                                     <constraint firstItem="sO9-9E-dgm" firstAttribute="top" secondItem="kL0-Pl-Z9J" secondAttribute="bottom" constant="10" id="VEP-F7-FG1"/>
+                                    <constraint firstItem="btO-Dg-JUW" firstAttribute="top" secondItem="fYr-NK-KB9" secondAttribute="bottom" constant="10" id="Wvm-Ok-Tsw"/>
                                     <constraint firstAttribute="trailing" secondItem="btO-Dg-JUW" secondAttribute="trailing" id="XZT-B2-bAO"/>
                                     <constraint firstAttribute="bottom" secondItem="btO-Dg-JUW" secondAttribute="bottom" id="cJI-0I-pKc"/>
                                     <constraint firstItem="kL0-Pl-Z9J" firstAttribute="top" secondItem="7z3-lC-hOc" secondAttribute="bottom" constant="10" id="chE-H4-thX"/>
                                     <constraint firstItem="QsY-1Z-RGB" firstAttribute="top" secondItem="sO9-9E-dgm" secondAttribute="bottom" constant="10" id="dVz-M4-xDo"/>
                                     <constraint firstAttribute="trailing" secondItem="sO9-9E-dgm" secondAttribute="trailing" id="j2D-mg-5dM"/>
+                                    <constraint firstItem="fYr-NK-KB9" firstAttribute="leading" secondItem="8ks-2P-sXl" secondAttribute="leading" id="n4X-uq-sk3"/>
                                     <constraint firstItem="sO9-9E-dgm" firstAttribute="leading" secondItem="8ks-2P-sXl" secondAttribute="leading" id="nUv-7L-eN6"/>
                                     <constraint firstAttribute="trailing" secondItem="QsY-1Z-RGB" secondAttribute="trailing" id="zaQ-GR-XXN"/>
                                 </constraints>
@@ -109,8 +126,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buttonFalse" destination="QsY-1Z-RGB" id="xv8-T6-Ej5"/>
-                        <outlet property="buttonTrue" destination="sO9-9E-dgm" id="Dpd-Mk-90x"/>
+                        <outlet property="buttonC1" destination="sO9-9E-dgm" id="BNP-Gx-ROl"/>
+                        <outlet property="buttonC2" destination="QsY-1Z-RGB" id="U0K-8X-B2y"/>
+                        <outlet property="buttonC3" destination="fYr-NK-KB9" id="jyC-DX-Zx5"/>
                         <outlet property="progressBar" destination="btO-Dg-JUW" id="qd5-SR-Oym"/>
                         <outlet property="questionLabel" destination="kL0-Pl-Z9J" id="w3h-E8-4do"/>
                         <outlet property="scoreLabel" destination="7z3-lC-hOc" id="PiO-Ir-QnF"/>
