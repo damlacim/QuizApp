@@ -11,3 +11,8 @@ The app works exactly like this. 👇
 ![](https://github.com/damlacim/QuizApp/blob/main/screenRecord/record.gif)
 
 That's how it is.
+
+Then I made some changes on it and wrote the multiple choice version. 
+The image above was the initial version of the app. This is the final state:
+
+![](https://github.com/damlacim/QuizApp/blob/main/screenRecord/record2.gif)
