@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D0191FBD27B586A400C4A001 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0191FBC27B586A400C4A001 /* Questions.swift */; };
-		D046AA8027B7F8470015604C /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D046AA7F27B7F8470015604C /* Logic.swift */; };
 		D056A3B127B42B5F007E25F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056A3B027B42B5F007E25F4 /* AppDelegate.swift */; };
 		D056A3B327B42B5F007E25F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056A3B227B42B5F007E25F4 /* SceneDelegate.swift */; };
 		D056A3B527B42B5F007E25F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056A3B427B42B5F007E25F4 /* ViewController.swift */; };
@@ -18,6 +16,7 @@
 		D056A3C827B42B60007E25F4 /* QuizAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056A3C727B42B60007E25F4 /* QuizAppTests.swift */; };
 		D056A3D227B42B60007E25F4 /* QuizAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056A3D127B42B60007E25F4 /* QuizAppUITests.swift */; };
 		D056A3D427B42B60007E25F4 /* QuizAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056A3D327B42B60007E25F4 /* QuizAppUITestsLaunchTests.swift */; };
+		D0D4398927D3870900157C92 /* QuizManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4398827D3870900157C92 /* QuizManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D0191FBC27B586A400C4A001 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
-		D046AA7F27B7F8470015604C /* Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		D056A3AD27B42B5F007E25F4 /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D056A3B027B42B5F007E25F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D056A3B227B42B5F007E25F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +50,7 @@
 		D056A3CD27B42B60007E25F4 /* QuizAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D056A3D127B42B60007E25F4 /* QuizAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAppUITests.swift; sourceTree = "<group>"; };
 		D056A3D327B42B60007E25F4 /* QuizAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D0D4398827D3870900157C92 /* QuizManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +81,7 @@
 		D046AA7C27B7F6B30015604C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D0191FBC27B586A400C4A001 /* Questions.swift */,
-				D046AA7F27B7F8470015604C /* Logic.swift */,
+				D0D4398827D3870900157C92 /* QuizManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,9 +285,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0D4398927D3870900157C92 /* QuizManager.swift in Sources */,
 				D056A3B527B42B5F007E25F4 /* ViewController.swift in Sources */,
-				D046AA8027B7F8470015604C /* Logic.swift in Sources */,
-				D0191FBD27B586A400C4A001 /* Questions.swift in Sources */,
 				D056A3B127B42B5F007E25F4 /* AppDelegate.swift in Sources */,
 				D056A3B327B42B5F007E25F4 /* SceneDelegate.swift in Sources */,
 			);
