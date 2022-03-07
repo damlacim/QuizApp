@@ -12,20 +12,14 @@ struct QuizData: Codable {
     
     let id: Int
     let question: String
-    
-    /*
-    let id: Int
-    let question: String
     let quizQuestionDescription: String?
     let answers: Answers
     let multipleCorrectAnswers: String
     let correctAnswers: CorrectAnswers
     let correctAnswer: String
-    let explanation: String?
-   
-    let tags: [Tag]
     let category, difficulty: String
-
+    
+    
     enum CodingKeys: String, CodingKey {
         case id, question
         case quizQuestionDescription = "description"
@@ -33,12 +27,13 @@ struct QuizData: Codable {
         case multipleCorrectAnswers = "multiple_correct_answers"
         case correctAnswers = "correct_answers"
         case correctAnswer = "correct_answer"
-        case explanation, tip, tags, category, difficulty
+        case category, difficulty
     }
+    
     struct Answers: Codable {
         let answerA, answerB, answerC, answerD: String
         let answerE, answerF: String?
-
+        
         enum CodingKeys: String, CodingKey {
             case answerA = "answer_a"
             case answerB = "answer_b"
@@ -51,7 +46,7 @@ struct QuizData: Codable {
     struct CorrectAnswers: Codable {
         let answerACorrect, answerBCorrect, answerCCorrect, answerDCorrect: String
         let answerECorrect, answerFCorrect: String
-
+        
         enum CodingKeys: String, CodingKey {
             case answerACorrect = "answer_a_correct"
             case answerBCorrect = "answer_b_correct"
@@ -61,7 +56,5 @@ struct QuizData: Codable {
             case answerFCorrect = "answer_f_correct"
         }
     }
-    struct Tag: Codable {
-        let name: String
-    }*/
+    
 }
