@@ -26,10 +26,6 @@ struct Logic {
         return quiz[questionNumber].answers
     }
     
-    func getProgress() -> Float {
-        let progress = questionNumber / quiz.count
-        return Float(progress)
-    }
     
     func getScore() -> Int {
         return score

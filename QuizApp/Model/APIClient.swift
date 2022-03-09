@@ -11,19 +11,19 @@ import Foundation
 /* Error Handler (Enum)
  
  ResonseError {
-    NetworkError
-    ApiError
-    JsonCoding
-    Unknown
+ NetworkError
+ ApiError
+ JsonCoding
+ Unknown
  }
  
  QuizData = <T>
  ResponseError = Error
-    
-
+ 
+ 
  1 - Request
-    * URL
-    * Response Type (T)
+ * URL
+ * Response Type (T)
  2 - Maping
  3 - Responsse (T?, Response?)
  */
@@ -38,7 +38,7 @@ final class APINetwork {
         case Unknown
         case decodingError(Error)
     }
-
+    
     typealias CompletionHandler = ((Decodable?, ResponseError?) -> Void)
     
     func callApi<T>(url: URL,
@@ -72,20 +72,20 @@ final class APINetwork {
     func parseJSON<T>(object: T.Type,
                       data: Data,
                       handler: @escaping CompletionHandler) where T: Decodable {
-            //json verilerini ayrıştırcaz
+        //json verilerini ayrıştırcaz
         
-            do {
-                let baseResponse = try JSONDecoder().decode(T.self, from: data)
-                DispatchQueue.main.async {
-                    handler(baseResponse, nil)
-                }
-               
-            } catch (let error) {
-                //hata verirse yakalarız
-                DispatchQueue.main.async {
-                    handler(nil, .decodingError(error))
-                }
+        do {
+            let baseResponse = try JSONDecoder().decode(T.self, from: data)
+            DispatchQueue.main.async {
+                handler(baseResponse, nil)
+            }
+            
+        } catch (let error) {
+            //hata verirse yakalarız
+            DispatchQueue.main.async {
+                handler(nil, .decodingError(error))
             }
         }
+    }
     
 }

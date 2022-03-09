@@ -13,10 +13,11 @@ class ViewController: UIViewController { // 1
     //MARK: IBOutlets
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var buttonC1: UIButton!
     @IBOutlet weak var buttonC2: UIButton!
     @IBOutlet weak var buttonC3: UIButton!
+    @IBOutlet weak var buttonC4: UIButton!
+   
     
     //MARK: Private Variables
     private let api = APINetwork()
@@ -45,16 +46,48 @@ class ViewController: UIViewController { // 1
         bindUI()
     }
     
-    private func bindUI() {
+    @objc private func bindUI() {
         let model = logic?.nextQuestion()
         questionLabel.text = model?.question
+        updateButton()
+        scoreLabel.text = "Score: \(logic!.getScore())"
+        clearBackground()
+        
+    }
+    
+    private func updateButton() {
+        let answerChoices = logic?.getAnswer()
+        buttonC1.setTitle(answerChoices?.answerA, for: .normal)
+        buttonC2.setTitle(answerChoices?.answerB, for: .normal)
+        buttonC3.setTitle(answerChoices?.answerC, for: .normal)
+        buttonC4.setTitle(answerChoices?.answerD, for: .normal)
+      
+    }
+    
+    private func clearBackground() {
+        buttonC1.backgroundColor = UIColor.clear
+        buttonC2.backgroundColor = UIColor.clear
+        buttonC3.backgroundColor = UIColor.clear
+        buttonC4.backgroundColor = UIColor.clear
+        
     }
     
     //MARK: IBActions
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         
+        let userAnswer = sender.currentTitle!
+        let userGotItRight = logic!.checkAnswer(userAnswer)
+        if userGotItRight == true {
+            sender.backgroundColor = UIColor.green
+        } else {
+            sender.backgroundColor = UIColor.red
+        }
+        
+        Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(bindUI), userInfo: nil, repeats: false)
+        
     }
+    
     
 }
 
