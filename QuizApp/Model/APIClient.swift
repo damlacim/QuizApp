@@ -9,6 +9,7 @@ import Foundation
 
 
 /* Error Handler (Enum)
+ 
  ResonseError {
     NetworkError
     ApiError
@@ -17,7 +18,7 @@ import Foundation
  }
  
  QuizData = <T>
- ResonseError = Error
+ ResponseError = Error
     
 
  1 - Request
@@ -30,24 +31,38 @@ import Foundation
 
 
 final class APINetwork {
+    
+    enum ResponseError: Error {
+        case Unauthenticated
+        case NoQuestionsFound
+        case Unknown
+        case decodingError(Error)
+    }
 
-    typealias CompletionHandler = ((Decodable?, Error?) -> Void)
+    typealias CompletionHandler = ((Decodable?, ResponseError?) -> Void)
     
     func callApi<T>(url: URL,
                     object: T.Type,
                     handler: @escaping CompletionHandler) where T: Decodable {
-        
+        //Create a URLSession
         let session = URLSession(configuration: .default)
         //Give URLSession a task
-        let task = session.dataTask(with: url) { [self] data, response, error in
-            if error != nil {
-                print(error!)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                handler(nil, .decodingError(error))
                 return
             }
-            if let safeData = data {
-                parseJSON(object: object,
-                          data: safeData,
-                          handler: handler)
+            if let httpResponse = response as? HTTPURLResponse {
+                switch httpResponse.statusCode {
+                case 200...299:
+                    if let safeData = data {
+                        self.parseJSON(object: object, data: safeData, handler: handler)
+                    }
+                case 401:
+                    handler(nil, .Unauthenticated)
+                default:
+                    handler(nil, .Unknown)
+                }
             }
         }
         //Start the task
@@ -56,18 +71,21 @@ final class APINetwork {
     
     func parseJSON<T>(object: T.Type,
                       data: Data,
-                      handler: CompletionHandler) where T: Decodable {
+                      handler: @escaping CompletionHandler) where T: Decodable {
             //json verilerini ayrıştırcaz
         
             do {
                 let baseResponse = try JSONDecoder().decode(T.self, from: data)
-               handler(baseResponse, nil)
+                DispatchQueue.main.async {
+                    handler(baseResponse, nil)
+                }
+               
             } catch (let error) {
                 //hata verirse yakalarız
-                handler(nil, error)
+                DispatchQueue.main.async {
+                    handler(nil, .decodingError(error))
+                }
             }
         }
-    
-  
     
 }

@@ -18,6 +18,7 @@
 		D056A3D427B42B60007E25F4 /* QuizAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056A3D327B42B60007E25F4 /* QuizAppUITestsLaunchTests.swift */; };
 		D0D4398927D3870900157C92 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4398827D3870900157C92 /* APIClient.swift */; };
 		D0D4398B27D5D72D00157C92 /* QuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4398A27D5D72D00157C92 /* QuizData.swift */; };
+		D0D4399327D7DC7700157C92 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4399227D7DC7700157C92 /* Logic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D056A3D327B42B60007E25F4 /* QuizAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D0D4398827D3870900157C92 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		D0D4398A27D5D72D00157C92 /* QuizData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizData.swift; sourceTree = "<group>"; };
+		D0D4399227D7DC7700157C92 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				D0D4398827D3870900157C92 /* APIClient.swift */,
 				D0D4398A27D5D72D00157C92 /* QuizData.swift */,
+				D0D4399227D7DC7700157C92 /* Logic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				D0D4398927D3870900157C92 /* APIClient.swift in Sources */,
 				D056A3B527B42B5F007E25F4 /* ViewController.swift in Sources */,
 				D056A3B127B42B5F007E25F4 /* AppDelegate.swift in Sources */,
+				D0D4399327D7DC7700157C92 /* Logic.swift in Sources */,
 				D0D4398B27D5D72D00157C92 /* QuizData.swift in Sources */,
 				D056A3B327B42B5F007E25F4 /* SceneDelegate.swift in Sources */,
 			);
