@@ -88,6 +88,12 @@ class ViewController: UIViewController { // 1
         
     }
     
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        let secondVC = SecondViewController()
+        secondVC.scoreLabel = scoreLabel.text!
+        self.present(secondVC, animated: true, completion: nil)
+    }
+    
     
 }
 
