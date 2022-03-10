@@ -17,7 +17,7 @@ class ViewController: UIViewController { // 1
     @IBOutlet weak var buttonC2: UIButton!
     @IBOutlet weak var buttonC3: UIButton!
     @IBOutlet weak var buttonC4: UIButton!
-   
+    @IBOutlet weak var buttonNext: UIButton!
     
     //MARK: Private Variables
     private let api = APINetwork()
