@@ -14,14 +14,14 @@ struct QuizData: Codable {
     let question: String
     let answers: Answers
     let correctAnswers: CorrectAnswers
-    let correctAnswer: String
+    let correctAnswer: String?
+    
  
     enum CodingKeys: String, CodingKey {
         case id, question
         case answers
-        case correctAnswers = "correct_answers"
-        case correctAnswer = "correct_answer"
-        
+        case correctAnswers = "correct_answers" // 2 true
+        case correctAnswer = "correct_answer"//2
     }
  
 }

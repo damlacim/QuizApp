@@ -73,7 +73,7 @@
                                             <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yXw-jM-4pB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsY-1Z-RGB">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsY-1Z-RGB">
                                         <rect key="frame" x="0.0" y="558" width="374" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="FwN-qF-luD"/>
@@ -87,7 +87,7 @@
                                             <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1GK-oa-NPW"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYr-NK-KB9">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYr-NK-KB9">
                                         <rect key="frame" x="0.0" y="648" width="374" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="5XX-FG-vhd"/>
@@ -101,7 +101,7 @@
                                             <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FFx-4D-WXM"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03P-FM-Kb5" userLabel="ButtonC4">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03P-FM-Kb5" userLabel="ButtonC4">
                                         <rect key="frame" x="0.0" y="738" width="374" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="emK-yp-o6V"/>
@@ -357,6 +357,15 @@
                             <constraint firstItem="gKP-0M-kV6" firstAttribute="leading" secondItem="CNh-ZQ-hxY" secondAttribute="leading" constant="46" id="pv4-BE-FXP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cloudButton" destination="K92-gv-x0w" id="7al-We-O7c"/>
+                        <outlet property="devopsButton" destination="bcY-04-uc5" id="eKx-es-pSP"/>
+                        <outlet property="dockerButton" destination="geF-bR-K79" id="ssG-IM-KBk"/>
+                        <outlet property="kubernetesButton" destination="Bfu-5J-Nye" id="tAq-bO-zyg"/>
+                        <outlet property="linuxButton" destination="fMw-kp-CyL" id="i2F-sj-2sT"/>
+                        <outlet property="networkingButton" destination="GRa-Hy-kP8" id="tNJ-N7-yUS"/>
+                        <outlet property="programmingButton" destination="4Fy-sw-515" id="pBG-T9-tDk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="omb-C2-6ro" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

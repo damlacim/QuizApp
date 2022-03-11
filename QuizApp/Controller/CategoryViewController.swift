@@ -9,9 +9,13 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
-    
-    
-    
+    @IBOutlet weak var linuxButton: UIButton!
+    @IBOutlet weak var devopsButton: UIButton!
+    @IBOutlet weak var networkingButton: UIButton!
+    @IBOutlet weak var programmingButton: UIButton!
+    @IBOutlet weak var cloudButton: UIButton!
+    @IBOutlet weak var dockerButton: UIButton!
+    @IBOutlet weak var kubernetesButton: UIButton!
     
     
 

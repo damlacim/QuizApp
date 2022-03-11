@@ -30,12 +30,13 @@ class ViewController: UIViewController { // 1
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://quizapi.io/api/v1/questions?apiKey=PgtZ92pOzQjokad7tqq89vwsisdqoxpjgHBugbnR&category=bash&limit=10")!
+        let url = URL(string: "https://quizapi.io/api/v1/questions?apiKey=PgtZ92pOzQjokad7tqq89vwsisdqoxpjgHBugbnR&category=linux&limit=10")!
         
         api.callApi(url: url,
                     object: [QuizData].self) { [weak self] model, error in
+            let array =  (model as! [QuizData]).filter({$0.correctAnswer != nil})
             
-            self?.logic = Logic(data: model as! [QuizData]) //2
+            self?.logic = Logic(data:array) //2
             self?.nextQuestion()
         }
         
@@ -76,8 +77,7 @@ class ViewController: UIViewController { // 1
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         
-        let userAnswer = sender.currentTitle!
-        let userGotItRight = logic!.checkAnswer(userAnswer)
+        let userGotItRight = logic!.checkAnswer(sender.tag)
         if userGotItRight == true {
             sender.backgroundColor = UIColor.green
         } else {

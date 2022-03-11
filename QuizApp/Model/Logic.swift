@@ -43,9 +43,12 @@ struct Logic {
         return quiz[questionNumber]
     }
     
-    mutating func checkAnswer(_ userAnswer: String) -> Bool {
+    mutating func checkAnswer(_ userSelectedIndex: Int) -> Bool {
+        let model = quiz[questionNumber]
+        let answers = Mirror(reflecting: model.answers.self)
+        let answerString =  answers.children.compactMap({$0.label})[userSelectedIndex]
         
-        if userAnswer == quiz[questionNumber].correctAnswer {
+        if answerString.lowercased() == model.correctAnswer!.replacingOccurrences(of: "_", with: "").lowercased() {
             score += 1
             return true
         }
