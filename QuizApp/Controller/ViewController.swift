@@ -23,6 +23,7 @@ class ViewController: UIViewController { // 1
     private let api = APINetwork()
     private var logic: Logic? = nil
     
+    
     //MARK: Global Variables
     
     
