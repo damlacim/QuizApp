@@ -17,11 +17,15 @@ class ViewController: UIViewController { // 1
     @IBOutlet weak var buttonC2: UIButton!
     @IBOutlet weak var buttonC3: UIButton!
     @IBOutlet weak var buttonC4: UIButton!
-    @IBOutlet weak var buttonNext: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
+    
     
     //MARK: Private Variables
     private let api = APINetwork()
     private var logic: Logic? = nil
+    var counter = 30
+    var timerTest: Timer?
+    
     
     
     //MARK: Global Variables
@@ -31,7 +35,7 @@ class ViewController: UIViewController { // 1
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://quizapi.io/api/v1/questions?apiKey=PgtZ92pOzQjokad7tqq89vwsisdqoxpjgHBugbnR&category=linux&limit=10")!
+        let url = URL(string: "https://quizapi.io/api/v1/questions?apiKey=PgtZ92pOzQjokad7tqq89vwsisdqoxpjgHBugbnR&category=linux&difficulty=Easy&limit=10")!
         
         api.callApi(url: url,
                     object: [QuizData].self) { [weak self] model, error in
@@ -39,6 +43,14 @@ class ViewController: UIViewController { // 1
             
             self?.logic = Logic(data:array) //2
             self?.nextQuestion()
+            
+            self?.timerTest =  Timer.scheduledTimer(
+                timeInterval: TimeInterval(1.0),
+                target      : self,
+                selector    : #selector(self!.updateTimer),
+                userInfo    : nil,
+                repeats     : true)
+            
         }
         
     }
@@ -46,6 +58,7 @@ class ViewController: UIViewController { // 1
     //MARK: Methods
     private func nextQuestion() {
         bindUI()
+        
     }
     
     @objc private func bindUI() {
@@ -54,6 +67,9 @@ class ViewController: UIViewController { // 1
         updateButton()
         scoreLabel.text = "Score: \(logic!.getScore())"
         clearBackground()
+        updateTimer()
+        
+       
         
     }
     
@@ -74,6 +90,19 @@ class ViewController: UIViewController { // 1
         
     }
     
+    @objc func updateTimer() {
+        
+        if counter > 0 {
+            counter -= 1
+            timerLabel.text = "Time:\(counter)"
+        }
+        else {
+            timerTest?.invalidate()
+            performSegue(withIdentifier: "back", sender: self)
+        }
+    }
+  
+    
     //MARK: IBActions
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
@@ -89,9 +118,7 @@ class ViewController: UIViewController { // 1
         
     }
     
-    @IBAction func nextButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToResult", sender: self)
-    }
+  
     
     
 }
