@@ -23,8 +23,8 @@ class ViewController: UIViewController { // 1
     //MARK: Private Variables
     private let api = APINetwork()
     private var logic: Logic? = nil
-    var counter = 30
-    var timerTest: Timer?
+    private var counter = 30
+    private var timer: Timer?
     
     
     
@@ -44,7 +44,7 @@ class ViewController: UIViewController { // 1
             self?.logic = Logic(data:array) //2
             self?.nextQuestion()
             
-            self?.timerTest =  Timer.scheduledTimer(
+            self?.timer =  Timer.scheduledTimer(
                 timeInterval: TimeInterval(1.0),
                 target      : self,
                 selector    : #selector(self!.updateTimer),
@@ -97,7 +97,7 @@ class ViewController: UIViewController { // 1
             timerLabel.text = "Time:\(counter)"
         }
         else {
-            timerTest?.invalidate()
+            timer?.invalidate()
             performSegue(withIdentifier: "back", sender: self)
         }
     }
