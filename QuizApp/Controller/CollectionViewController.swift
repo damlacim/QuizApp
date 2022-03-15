@@ -15,7 +15,7 @@ struct Categories {
 
 class CollectionViewController: UICollectionViewController {
     
-    var selectedIndex = 0
+   
     var category: [Categories] = [Categories]()
 
     override func viewDidLoad() {
@@ -76,7 +76,6 @@ class CollectionViewController: UICollectionViewController {
         return cell
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
         performSegue(withIdentifier: "quiz screen", sender: self)
     }
     
