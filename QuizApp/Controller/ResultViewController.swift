@@ -8,13 +8,15 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-
-    @IBOutlet weak var scoreLabel2: UILabel!
+    
+    @IBOutlet weak var resultScoreLabel: UILabel!
+    var logic: Logic?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let score = logic?.getScore()
+        resultScoreLabel.text = "Score: \(String(describing: score))" //nil geliyor
     }
     
 
