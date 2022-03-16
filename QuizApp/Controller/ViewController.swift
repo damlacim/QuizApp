@@ -35,11 +35,20 @@ class ViewController: UIViewController { // 1
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         let url = URL(string: "https://quizapi.io/api/v1/questions?apiKey=PgtZ92pOzQjokad7tqq89vwsisdqoxpjgHBugbnR&category=linux&difficulty=Easy&limit=10")!
         
         api.callApi(url: url,
                     object: [QuizData].self) { [weak self] model, error in
-            let array =  (model as! [QuizData]).filter({$0.correctAnswer != nil})
+            
+            var array: [QuizData]
+            if model == nil {
+                array = Bundle.main.decode([QuizData].self, from: "DataFile")
+                return
+            } else {
+                 array =  (model as! [QuizData]).filter({$0.correctAnswer != nil})
+            }
             
             self?.logic = Logic(data:array) //2
             self?.nextQuestion()
@@ -97,8 +106,9 @@ class ViewController: UIViewController { // 1
             timerLabel.text = "Time:\(counter)"
         }
         else {
+            
+            self.navigationController?.popToRootViewController(animated: true)
             timer?.invalidate()
-            performSegue(withIdentifier: "back", sender: self)
         }
     }
   
@@ -115,7 +125,7 @@ class ViewController: UIViewController { // 1
         }
         
         Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(bindUI), userInfo: nil, repeats: false)
-        
+        timer?.invalidate()
     }
     
   
