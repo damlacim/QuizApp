@@ -92,10 +92,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D046AA7C27B7F6B30015604C /* Model */ = {
+		D025E02527E4639C00285231 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				D0D4398827D3870900157C92 /* APIClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D046AA7C27B7F6B30015604C /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				D0D4398A27D5D72D00157C92 /* QuizData.swift */,
 				D0D4399227D7DC7700157C92 /* Logic.swift */,
 			);
@@ -148,6 +155,7 @@
 			children = (
 				D056A3B027B42B5F007E25F4 /* AppDelegate.swift */,
 				D056A3B227B42B5F007E25F4 /* SceneDelegate.swift */,
+				D025E02527E4639C00285231 /* Network */,
 				D046AA7C27B7F6B30015604C /* Model */,
 				D046AA7D27B7F6D30015604C /* View */,
 				D046AA7E27B7F6F30015604C /* Controller */,

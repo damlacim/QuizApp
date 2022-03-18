@@ -6,18 +6,23 @@
 //
 
 import Foundation
+import UIKit
 
 struct Logic {
-    
+    // MARK: Private Variables
     private(set) var quiz: [QuizData] = []
-    
     private var questionNumber = 0
     private var score = 0
+    private var vc = ViewController()
     
+    
+    
+    // MARK: Life Cycle
     init(data: [QuizData]) {
         self.quiz = data
     }
     
+    // MARK: Functions
     func getQuestionText () -> String {
         return quiz[questionNumber].question
     }
@@ -31,15 +36,13 @@ struct Logic {
         return score
     }
     
-    mutating func nextQuestion () -> QuizData {
-        if self.questionNumber + 1 < quiz.count {
+    mutating func nextQuestion() -> QuizData {
+        if questionNumber + 1 < quiz.count {
             questionNumber += 1
         }
         else {
-            questionNumber = 0
-            score = 0
+            vc.goToResultPage() //result ekranına giden metodu çağırdım
         }
-        
         return quiz[questionNumber]
     }
     

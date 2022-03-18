@@ -68,7 +68,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VİewControllerID" id="BYZ-38-t0r" customClass="ViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,7 +176,7 @@
                         <outlet property="questionLabel" destination="kL0-Pl-Z9J" id="w3h-E8-4do"/>
                         <outlet property="scoreLabel" destination="7z3-lC-hOc" id="PiO-Ir-QnF"/>
                         <outlet property="timerLabel" destination="LI4-pX-Yi4" id="Zc7-BK-i4n"/>
-                        <segue destination="9HA-kZ-e7X" kind="presentation" identifier="goToResult" id="Gdg-sQ-HMP"/>
+                        <segue destination="9HA-kZ-e7X" kind="show" identifier="resultPage" id="QfZ-8e-gfH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -186,13 +186,13 @@
         <!--Result View Controller-->
         <scene sceneID="9JT-B5-ETu">
             <objects>
-                <viewController id="9HA-kZ-e7X" customClass="ResultViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resultViewControllerID" id="9HA-kZ-e7X" customClass="ResultViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xMt-aA-wtV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="1CV-BT-veA">
-                                <rect key="frame" x="20" y="356" width="374" height="200"/>
+                                <rect key="frame" x="20" y="496" width="374" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Well Done!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jE-ED-EEn">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
@@ -215,7 +215,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Congrats" translatesAutoresizingMaskIntoConstraints="NO" id="pBF-5z-hmp">
-                                <rect key="frame" x="30" y="46" width="354" height="300"/>
+                                <rect key="frame" x="30" y="186" width="354" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="UoD-kn-rPL"/>
                                 </constraints>
@@ -232,13 +232,14 @@
                             <constraint firstItem="lRe-AT-0r1" firstAttribute="trailing" secondItem="1CV-BT-veA" secondAttribute="trailing" constant="20" id="pfD-FE-R62"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="QXw-BQ-HZh"/>
                     <connections>
                         <outlet property="resultScoreLabel" destination="DMv-GI-cNZ" id="FKg-1H-j6l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Q1-wE-TF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1660.8695652173915" y="101.78571428571428"/>
+            <point key="canvasLocation" x="1725" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EaR-VW-nhd">

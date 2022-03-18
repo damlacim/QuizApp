@@ -24,7 +24,7 @@ class ViewController: UIViewController { // 1
     private let api = APINetwork()
     private var logic: Logic? = nil
     private var counter = 30
-    private var timer: Timer?
+     var timer: Timer?
     
     
     
@@ -52,15 +52,10 @@ class ViewController: UIViewController { // 1
             
             self?.logic = Logic(data:array) //2
             self?.nextQuestion()
-            
-            self?.timer =  Timer.scheduledTimer(
-                timeInterval: TimeInterval(1.0),
-                target      : self,
-                selector    : #selector(self!.updateTimer),
-                userInfo    : nil,
-                repeats     : true)
-            
+            self?.startTimer()
         }
+        
+        
         
     }
     
@@ -77,9 +72,6 @@ class ViewController: UIViewController { // 1
         scoreLabel.text = "Score: \(logic!.getScore())"
         clearBackground()
         updateTimer()
-        
-       
-        
     }
     
     private func updateButton() {
@@ -99,19 +91,32 @@ class ViewController: UIViewController { // 1
         
     }
     
+    func startTimer() {
+        timer =  Timer.scheduledTimer(
+            timeInterval: TimeInterval(1.0),
+            target      : self,
+            selector    : #selector(self.updateTimer),
+            userInfo    : nil,
+            repeats     : true)
+    }
+    
     @objc func updateTimer() {
         
         if counter > 0 {
             counter -= 1
-            timerLabel.text = "Time:\(counter)"
+            timerLabel?.text = "Time:\(counter)"
         }
         else {
-            
             self.navigationController?.popToRootViewController(animated: true)
-            timer?.invalidate()
         }
     }
-  
+    
+    func goToResultPage() { //result sayfası için yönlendirme
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let goToResult = storyboard.instantiateViewController(withIdentifier: "resultViewControllerID") as! ResultViewController
+        navigationController?.pushViewController(goToResult, animated: true)
+    }
+   
     
     //MARK: IBActions
     
@@ -120,12 +125,16 @@ class ViewController: UIViewController { // 1
         let userGotItRight = logic!.checkAnswer(sender.tag)
         if userGotItRight == true {
             sender.backgroundColor = UIColor.green
+           
+            
         } else {
             sender.backgroundColor = UIColor.red
+            
+            
         }
         
         Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(bindUI), userInfo: nil, repeats: false)
-        timer?.invalidate()
+        
     }
     
   
