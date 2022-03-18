@@ -112,9 +112,12 @@ class ViewController: UIViewController { // 1
     }
     
     func goToResultPage() { //result sayfası için yönlendirme
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) //hangi storyboardda olduğumu belirttim
+        //gidilecek view controller
         let goToResult = storyboard.instantiateViewController(withIdentifier: "resultViewControllerID") as! ResultViewController
-        navigationController?.pushViewController(goToResult, animated: true)
+        let score = logic?.getScore() //gönderilecek veriyi aldım
+        goToResult.resultScore = score! //verinin gideceği sınıftan nesne oluşturdum ve veriyi atadım
+        self.navigationController?.pushViewController(goToResult, animated: true)
     }
    
     

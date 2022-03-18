@@ -41,7 +41,7 @@ struct Logic {
             questionNumber += 1
         }
         else {
-            vc.goToResultPage() //result ekranına giden metodu çağırdım
+            vc.goToResultPage() // view controllerdan nesne oluşturarak result ekranına giden metodu çağırdım. Çalışmıyor?
         }
         return quiz[questionNumber]
     }
