@@ -116,8 +116,8 @@ class ViewController: UIViewController { // 1
         //gidilecek view controller
         let goToResult = storyboard.instantiateViewController(withIdentifier: "resultViewControllerID") as! ResultViewController
         let score = logic?.getScore() //gönderilecek veriyi aldım
-        goToResult.resultScore = score! //verinin gideceği sınıftan nesne oluşturdum ve veriyi atadım
-        self.navigationController?.pushViewController(goToResult, animated: true)
+        goToResult.resultScore = score //verinin gideceği sınıftan nesne oluşturdum ve veriyi atadım
+        self.navigationController?.pushViewController(goToResult, animated: true) //yönlendirme yaptım
     }
    
     

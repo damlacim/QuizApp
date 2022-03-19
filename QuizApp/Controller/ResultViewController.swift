@@ -12,23 +12,16 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var resultScoreLabel: UILabel!
     var logic: Logic?
     var resultScore: Int?
+    let data = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.hidesBackButton = true //back tuşunu gizledim soru cevaplama ekranına geri gidilmeyecek
-        
         resultScoreLabel.text = "Score: \(resultScore!)"
         
-     /*   let score = UserDefaults.standard
-        let scoreRecord = [logic?.getScore()]
-        //veri kaydettik
-        score.set(scoreRecord, forKey: "score list")
+        data.set(resultScore, forKey: "new score") //score'u user defaults'a kaydettim.
+        let scoreList = data.array(forKey: "new score") as? [Int] ?? [Int]() //score'ları arrayde tutucaz
         
-        //veri okuma
-        let scoreList = score.array(forKey: "score list") as? [String] ?? [String]()
-        
-*/
         
     }
     
