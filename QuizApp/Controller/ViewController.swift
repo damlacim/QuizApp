@@ -53,6 +53,7 @@ class ViewController: UIViewController { // 1
             self?.logic = Logic(data:array) //2
             self?.nextQuestion()
             self?.startTimer()
+            self?.goToResultPage()
         }
         
         
