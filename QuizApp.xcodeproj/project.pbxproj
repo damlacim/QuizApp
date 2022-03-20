@@ -25,6 +25,7 @@
 		D05A386727E0B33800282446 /* DataFile.json in Resources */ = {isa = PBXBuildFile; fileRef = D05A386627E0B33800282446 /* DataFile.json */; };
 		D05A386927E0B3DA00282446 /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05A386827E0B3DA00282446 /* BundleExtension.swift */; };
 		D06FFDB127D9DD5100B59C4F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06FFDB027D9DD5100B59C4F /* ResultViewController.swift */; };
+		D08FBE1527E74D390020C177 /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08FBE1427E74D390020C177 /* AchievementViewController.swift */; };
 		D0D4398927D3870900157C92 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4398827D3870900157C92 /* APIClient.swift */; };
 		D0D4398B27D5D72D00157C92 /* QuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4398A27D5D72D00157C92 /* QuizData.swift */; };
 		D0D4399327D7DC7700157C92 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D4399227D7DC7700157C92 /* Logic.swift */; };
@@ -76,6 +77,7 @@
 		D05A386627E0B33800282446 /* DataFile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DataFile.json; sourceTree = "<group>"; };
 		D05A386827E0B3DA00282446 /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
 		D06FFDB027D9DD5100B59C4F /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		D08FBE1427E74D390020C177 /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		D0D4398827D3870900157C92 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		D0D4398A27D5D72D00157C92 /* QuizData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizData.swift; sourceTree = "<group>"; };
 		D0D4399227D7DC7700157C92 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				D056A3B427B42B5F007E25F4 /* ViewController.swift */,
 				D06FFDB027D9DD5100B59C4F /* ResultViewController.swift */,
 				D01AE2B327DE3542004CCAA1 /* CollectionViewController.swift */,
+				D08FBE1427E74D390020C177 /* AchievementViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D08FBE1527E74D390020C177 /* AchievementViewController.swift in Sources */,
 				D0D4398927D3870900157C92 /* APIClient.swift in Sources */,
 				D056A3B527B42B5F007E25F4 /* ViewController.swift in Sources */,
 				D01AE2B627DE3E6F004CCAA1 /* CollectionViewCell.swift in Sources */,

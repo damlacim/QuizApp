@@ -11,9 +11,9 @@ import Lottie
 class ResultViewController: UIViewController {
     
     @IBOutlet weak var resultScoreLabel: UILabel!
-    var logic: Logic?
+  
+
     var resultScore: Int?
-    let data = UserDefaults.standard
     var animationView: AnimationView?
     
     override func viewDidLoad() {
@@ -23,18 +23,24 @@ class ResultViewController: UIViewController {
         view.addSubview(animationView!)
         animationView?.play()
         
-        
-        
         self.navigationItem.hidesBackButton = true //back tuşunu gizledim soru cevaplama ekranına geri gidilmeyecek
+        
         resultScoreLabel.text = "Score: \(resultScore!)"
-        
-        data.set(resultScore, forKey: "new score") //score'u user defaults'a kaydettim.
-        let scoreList = data.array(forKey: "new score") as? [Int] ?? [Int]() //score'ları arrayde tutucaz
-        
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAchievement" {
+            let goToAchievementPage = segue.destination as! AchievementViewController
+            goToAchievementPage.scoreList = [resultScore!]
+        }
+    }
+    
 
+
+    
   
-
 }
+    
+
+

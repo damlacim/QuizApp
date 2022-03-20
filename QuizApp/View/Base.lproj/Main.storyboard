@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -232,14 +233,52 @@
                             <constraint firstItem="lRe-AT-0r1" firstAttribute="trailing" secondItem="1CV-BT-veA" secondAttribute="trailing" constant="20" id="pfD-FE-R62"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QXw-BQ-HZh"/>
+                    <navigationItem key="navigationItem" id="QXw-BQ-HZh">
+                        <barButtonItem key="rightBarButtonItem" title="Achievements" id="M5D-l4-1gV">
+                            <connections>
+                                <segue destination="9I0-Oz-9mz" kind="show" identifier="goToAchievement" id="5yS-3a-fXh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="resultScoreLabel" destination="DMv-GI-cNZ" id="FKg-1H-j6l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Q1-wE-TF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1725" y="98"/>
+            <point key="canvasLocation" x="1724.6376811594205" y="97.767857142857139"/>
+        </scene>
+        <!--Achievement View Controller-->
+        <scene sceneID="yye-Ps-ua8">
+            <objects>
+                <viewController storyboardIdentifier="AchievementID" id="9I0-Oz-9mz" customClass="AchievementViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fpc-Ik-e8z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AwK-LQ-CpD">
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" red="0.20000001789999999" green="0.231372565" blue="0.35294118520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="A3v-tM-06x"/>
+                        <color key="backgroundColor" red="0.20000001789999999" green="0.231372565" blue="0.35294118520000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="AwK-LQ-CpD" firstAttribute="leading" secondItem="A3v-tM-06x" secondAttribute="leading" id="UiI-rF-iE2"/>
+                            <constraint firstItem="AwK-LQ-CpD" firstAttribute="centerX" secondItem="fpc-Ik-e8z" secondAttribute="centerX" id="hts-hh-cYD"/>
+                            <constraint firstItem="AwK-LQ-CpD" firstAttribute="bottom" secondItem="A3v-tM-06x" secondAttribute="bottom" id="sWF-H9-NwF"/>
+                            <constraint firstItem="AwK-LQ-CpD" firstAttribute="top" secondItem="A3v-tM-06x" secondAttribute="top" id="woG-X7-Qaz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="D6C-gt-c69"/>
+                    <connections>
+                        <outlet property="table" destination="AwK-LQ-CpD" id="Xxz-Hv-MH8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3vp-bb-RUJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2490" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EaR-VW-nhd">
@@ -283,5 +322,8 @@
     <resources>
         <image name="Congrats" width="512" height="512"/>
         <image name="Rectangle" width="322" height="68"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
