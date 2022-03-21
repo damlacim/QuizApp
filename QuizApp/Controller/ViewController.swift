@@ -75,7 +75,6 @@ class ViewController: UIViewController { // 1
         updateButton()
         scoreLabel.text = "Score: \(logic!.getScore())"
         clearBackground()
-        
         updateTimer()
     }
     

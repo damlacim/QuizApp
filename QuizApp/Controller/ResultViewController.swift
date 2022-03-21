@@ -25,20 +25,11 @@ class ResultViewController: UIViewController {
         
         self.navigationItem.hidesBackButton = true //back tuşunu gizledim soru cevaplama ekranına geri gidilmeyecek
         
-        resultScoreLabel.text = "\(resultScore!)"
+        resultScoreLabel.text = resultScore
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToAchievement" {
-            let goToAchievementPage = segue.destination as! AchievementViewController
-            goToAchievementPage.scoreList = [resultScore!]
-        }
-    }
-    
 
-
-    
   
 }
     
