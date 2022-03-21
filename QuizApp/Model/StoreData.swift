@@ -19,5 +19,4 @@ class StoreData {
         let scoreList = defaults.array(forKey: "new score") as? [String] ?? [String]()
         return scoreList
     }
-
 }

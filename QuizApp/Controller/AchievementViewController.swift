@@ -8,8 +8,7 @@
 import UIKit
 
 class AchievementViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
-
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var dummyScore: [String] = [String]()
@@ -19,9 +18,6 @@ class AchievementViewController: UIViewController, UITableViewDelegate,UITableVi
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-       
-
         dummyScore = ["Score: 1","Score: 3","Score: 5", "Score: 0","Score: 6", "Score: 2","Score: 5"]
         
     }
@@ -40,7 +36,4 @@ class AchievementViewController: UIViewController, UITableViewDelegate,UITableVi
         return cell
     }
     
-
-  
-
 }

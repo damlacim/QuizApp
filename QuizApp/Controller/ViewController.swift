@@ -58,9 +58,6 @@ class ViewController: UIViewController { // 1
             self.logic?.delegate = self
            
         }
-        
-        
-        
     }
     
     //MARK: Methods
@@ -145,16 +142,12 @@ class ViewController: UIViewController { // 1
         
     }
     
-  
-    
-    
 }
 
 extension ViewController: LogicDelegate {
     func finishQuestions() {
         goToResultPage()
     }
-    
     
 }
 

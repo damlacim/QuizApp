@@ -285,7 +285,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Previous Scores" id="D6C-gt-c69"/>
                     <connections>
-                        <outlet property="table" destination="AwK-LQ-CpD" id="Xxz-Hv-MH8"/>
+                        <outlet property="tableView" destination="AwK-LQ-CpD" id="aoP-CM-pCN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vp-bb-RUJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
