@@ -13,7 +13,7 @@ class AchievementViewController: UIViewController, UITableViewDelegate,UITableVi
     @IBOutlet weak var table: UITableView!
     
     let data = UserDefaults.standard
-    var scoreList: [Int]?
+    var scoreList: [String]?
     
     var dummyScore: [String] = [String]()
     

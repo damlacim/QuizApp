@@ -13,7 +13,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var resultScoreLabel: UILabel!
   
 
-    var resultScore: Int?
+    var resultScore: String?
     var animationView: AnimationView?
     
     override func viewDidLoad() {
@@ -25,7 +25,7 @@ class ResultViewController: UIViewController {
         
         self.navigationItem.hidesBackButton = true //back tuşunu gizledim soru cevaplama ekranına geri gidilmeyecek
         
-        resultScoreLabel.text = "Score: \(resultScore!)"
+        resultScoreLabel.text = "\(resultScore!)"
         
     }
     

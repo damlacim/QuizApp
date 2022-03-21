@@ -22,7 +22,7 @@ class ViewController: UIViewController { // 1
     
     //MARK: Private Variables
     private let api = APINetwork()
-    private var logic: Logic? = nil
+    private var logic: Logic?
     private var counter = 30
      var timer: Timer?
     
@@ -41,7 +41,9 @@ class ViewController: UIViewController { // 1
         
         api.callApi(url: url,
                     object: [QuizData].self) { [weak self] model, error in
-            
+            guard let self = self else {
+                return
+            }
             var array: [QuizData]
             if model == nil {
                 array = Bundle.main.decode([QuizData].self, from: "DataFile")
@@ -50,10 +52,11 @@ class ViewController: UIViewController { // 1
                  array =  (model as! [QuizData]).filter({$0.correctAnswer != nil})
             }
             
-            self?.logic = Logic(data:array) //2
-            self?.nextQuestion()
-            self?.startTimer()
-            self?.goToResultPage()
+            self.logic = Logic(data:array) //2
+            self.nextQuestion()
+            self.startTimer()
+            self.logic?.delegate = self
+           
         }
         
         
@@ -72,6 +75,7 @@ class ViewController: UIViewController { // 1
         updateButton()
         scoreLabel.text = "Score: \(logic!.getScore())"
         clearBackground()
+        
         updateTimer()
     }
     
@@ -108,6 +112,7 @@ class ViewController: UIViewController { // 1
             timerLabel?.text = "Time:\(counter)"
         }
         else {
+            timer?.invalidate()
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
@@ -116,7 +121,7 @@ class ViewController: UIViewController { // 1
         let storyboard = UIStoryboard(name: "Main", bundle: nil) //hangi storyboardda olduğumu belirttim
         //gidilecek view controller
         let goToResult = storyboard.instantiateViewController(withIdentifier: "resultViewControllerID") as! ResultViewController
-        let score = logic?.getScore() //gönderilecek veriyi aldım
+        let score = self.scoreLabel.text //gönderilecek veriyi aldım
         goToResult.resultScore = score //verinin gideceği sınıftan nesne oluşturdum ve veriyi atadım
         self.navigationController?.pushViewController(goToResult, animated: true) //yönlendirme yaptım
     }
@@ -142,6 +147,14 @@ class ViewController: UIViewController { // 1
     }
     
   
+    
+    
+}
+
+extension ViewController: LogicDelegate {
+    func finishQuestions() {
+        goToResultPage()
+    }
     
     
 }

@@ -8,13 +8,17 @@
 import Foundation
 import UIKit
 
+protocol LogicDelegate : AnyObject {
+    func finishQuestions()
+}
+
 struct Logic {
     // MARK: Private Variables
     private(set) var quiz: [QuizData] = []
     private var questionNumber = 0
     private var score = 0
-    private var vc = ViewController()
     
+    weak var delegate: LogicDelegate?
     
     
     // MARK: Life Cycle
@@ -41,7 +45,7 @@ struct Logic {
             questionNumber += 1
         }
         else {
-            vc.goToResultPage() // view controllerdan nesne oluşturarak result ekranına giden metodu çağırdım. Çalışmıyor?
+            delegate?.finishQuestions()
         }
         return quiz[questionNumber]
     }
@@ -53,6 +57,7 @@ struct Logic {
         
         if answerString.lowercased() == model.correctAnswer!.replacingOccurrences(of: "_", with: "").lowercased() {
             score += 1
+           
             return true
         }
         else {

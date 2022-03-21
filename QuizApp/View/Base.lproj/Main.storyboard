@@ -247,7 +247,7 @@
             </objects>
             <point key="canvasLocation" x="1724.6376811594205" y="97.767857142857139"/>
         </scene>
-        <!--Previous Achievements-->
+        <!--Previous Scores-->
         <scene sceneID="yye-Ps-ua8">
             <objects>
                 <viewController storyboardIdentifier="AchievementID" id="9I0-Oz-9mz" customClass="AchievementViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -283,7 +283,7 @@
                             <constraint firstItem="AwK-LQ-CpD" firstAttribute="top" secondItem="A3v-tM-06x" secondAttribute="top" id="woG-X7-Qaz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Previous Achievements" id="D6C-gt-c69"/>
+                    <navigationItem key="navigationItem" title="Previous Scores" id="D6C-gt-c69"/>
                     <connections>
                         <outlet property="table" destination="AwK-LQ-CpD" id="Xxz-Hv-MH8"/>
                     </connections>
