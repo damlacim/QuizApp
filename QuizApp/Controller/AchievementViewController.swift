@@ -11,17 +11,21 @@ class AchievementViewController: UIViewController, UITableViewDelegate,UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dummyScore: [String] = [String]()
     var resultScoreList: [String] = []
+    @IBOutlet weak var newQuizButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        //dummyScore = ["Score: 1","Score: 3","Score: 5", "Score: 0","Score: 6", "Score: 2","Score: 5"]
+        
+        navigationItem.hidesBackButton = true
         
     }
     
+    @IBAction func newQuizPressed(_ sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -36,5 +40,5 @@ class AchievementViewController: UIViewController, UITableViewDelegate,UITableVi
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
         return cell
     }
-    
+
 }

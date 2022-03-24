@@ -28,12 +28,13 @@ class ResultViewController: UIViewController {
         
         self.navigationItem.hidesBackButton = true //back tuşunu gizledim soru cevaplama ekranına geri gidilmeyecek
         resultScoreLabel.text = resultScore
-        scoreList.append(resultScore!)
+        
         
         self.storeData = StoreData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        scoreList.append(resultScore!)
         self.userDefaultsSaveData()
         self.userDefaultsLoadData()
     }

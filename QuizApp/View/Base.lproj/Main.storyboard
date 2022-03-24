@@ -283,8 +283,15 @@
                             <constraint firstItem="AwK-LQ-CpD" firstAttribute="top" secondItem="A3v-tM-06x" secondAttribute="top" id="woG-X7-Qaz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Previous Scores" id="D6C-gt-c69"/>
+                    <navigationItem key="navigationItem" title="Previous Scores" id="D6C-gt-c69">
+                        <barButtonItem key="rightBarButtonItem" title="New Quiz" id="jOn-Ox-CUj">
+                            <connections>
+                                <action selector="newQuizPressed:" destination="9I0-Oz-9mz" id="r20-bW-PN4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="newQuizButton" destination="jOn-Ox-CUj" id="f9M-qU-upx"/>
                         <outlet property="tableView" destination="AwK-LQ-CpD" id="aoP-CM-pCN"/>
                     </connections>
                 </viewController>
