@@ -11,12 +11,12 @@ class StoreData {
     
     let defaults = UserDefaults.standard
     
-    func setDefaults(resultScore: String) {
-        defaults.set(resultScore, forKey: "new score")
+    func saveData(resultScore: [String], key: String) {
+        defaults.set(resultScore, forKey: key)
     }
     
-    func readData() -> [String] {
-        let scoreList = defaults.array(forKey: "new score") as? [String] ?? [String]()
+    func loadData(key: String) -> [String] {
+        let scoreList = defaults.array(forKey: key) as? [String] ?? [String]()
         return scoreList
     }
 }

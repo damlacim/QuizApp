@@ -12,9 +12,11 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var resultScoreLabel: UILabel!
   
-    var storeData: StoreData?
+    var storeData = StoreData()
     var resultScore: String?
     var animationView: AnimationView?
+    var scoreList: [String] = []
+    var resultScoreList: [String] = []
     
     
     override func viewDidLoad() {
@@ -26,14 +28,28 @@ class ResultViewController: UIViewController {
         
         self.navigationItem.hidesBackButton = true //back tuşunu gizledim soru cevaplama ekranına geri gidilmeyecek
         resultScoreLabel.text = resultScore
+        scoreList.append(resultScore!)
         
         self.storeData = StoreData()
-        self.userDefaultsData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.userDefaultsSaveData()
+        self.userDefaultsLoadData()
     }
     
-    func userDefaultsData() {
-        storeData?.setDefaults(resultScore: resultScore!)
-        storeData?.readData()
+    func userDefaultsSaveData() {
+        storeData.saveData(resultScore: scoreList, key: "new score")
+    }
+    func userDefaultsLoadData() {
+       resultScoreList = storeData.loadData(key: "new score")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAchievement" {
+            let achievementView = segue.destination as! AchievementViewController
+            achievementView.resultScoreList = resultScoreList
+        }
     }
 }
     
