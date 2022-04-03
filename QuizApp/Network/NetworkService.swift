@@ -30,7 +30,7 @@ import Foundation
 
 
 
-final class APINetwork {
+final class NetworkService {
     
     enum ResponseError: Error {
         case Unauthenticated

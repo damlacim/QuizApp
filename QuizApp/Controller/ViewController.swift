@@ -21,7 +21,7 @@ class ViewController: UIViewController { // 1
     
     
     //MARK: Private Variables
-    private let api = APINetwork()
+    private let api = NetworkService()
     private var logic: Logic?
     private var counter = 30
      var timer: Timer?
@@ -52,20 +52,17 @@ class ViewController: UIViewController { // 1
                  array =  (model as! [QuizData]).filter({$0.correctAnswer != nil})
             }
             
-            self.logic = Logic(data:array) //2
-            self.nextQuestion()
-            self.startTimer()
+            self.logic = Logic(data:array)
+            self.bindUI()
             self.logic?.delegate = self
+            
            
         }
-    }
-    
-    //MARK: Methods
-    private func nextQuestion() {
-        bindUI()
+        self.startTimer()
         
     }
     
+    //MARK: Methods
     @objc private func bindUI() {
         let model = logic?.nextQuestion()
         questionLabel.text = model?.question
