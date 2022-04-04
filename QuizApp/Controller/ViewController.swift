@@ -32,7 +32,7 @@ class ViewController: UIViewController { // 1
         super.viewDidLoad()
     
         fetchData()
-        viewmodel.logic?.delegate = self
+        viewmodel.delegate = self
     
         //bindUI()
         
@@ -44,7 +44,6 @@ class ViewController: UIViewController { // 1
     
     func fetchData() {
         viewmodel.networkService()
-        
     }
     
     @objc private func bindUI() {
@@ -121,10 +120,9 @@ class ViewController: UIViewController { // 1
     
 }
 
-extension ViewController: LogicDelegate {
-    func finishQuestions() {
+extension ViewController: QuizViewModelDelegate {
+    func fetched() {
         goToResultPage()
     }
-    
 }
 

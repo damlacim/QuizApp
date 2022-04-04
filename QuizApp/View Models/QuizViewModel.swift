@@ -8,11 +8,15 @@
 import Foundation
 import UIKit
 
+protocol QuizViewModelDelegate: AnyObject {
+    func fetched()
+}
 
 class QuizViewModel {
 
     var logic: Logic?
     let api = NetworkService()
+    weak var delegate: QuizViewModelDelegate?
     
     
     func networkService() {
@@ -32,6 +36,7 @@ class QuizViewModel {
                  array =  (model as! [QuizData]).filter({$0.correctAnswer != nil})
             }
             self.logic = Logic(data: array)
+            self.logic?.delegate = self
         }
         
     }
@@ -56,6 +61,11 @@ class QuizViewModel {
         return logic?.checkAnswer(userSelectedIndex)
     }
     
+}
+extension QuizViewModel: LogicDelegate {
+    func finishQuestions() {
+        delegate?.fetched()
+    }
 }
 
 
