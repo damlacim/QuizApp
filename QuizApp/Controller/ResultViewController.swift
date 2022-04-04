@@ -12,7 +12,7 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var resultScoreLabel: UILabel!
   
-    var storeData = StoreData()
+    var viewmodel = QuizViewModel()
     var resultScore: String?
     var animationView: AnimationView?
     var scoreList: [String] = []
@@ -30,7 +30,7 @@ class ResultViewController: UIViewController {
         resultScoreLabel.text = resultScore
         
         
-        self.storeData = StoreData()
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,10 +40,10 @@ class ResultViewController: UIViewController {
     }
     
     func userDefaultsSaveData() {
-        storeData.saveData(resultScore: scoreList, key: "new score")
+        viewmodel.saveData(resultScore: scoreList, key: "new score")
     }
     func userDefaultsLoadData() {
-       resultScoreList = storeData.loadData(key: "new score")
+       resultScoreList = viewmodel.loadData(key: "new score")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

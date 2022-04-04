@@ -17,6 +17,7 @@ class QuizViewModel {
     var logic: Logic?
     let api = NetworkService()
     weak var delegate: QuizViewModelDelegate?
+    let defaults = UserDefaults.standard
     
     
     func networkService() {
@@ -59,6 +60,15 @@ class QuizViewModel {
     
     func checkAnswer(_ userSelectedIndex: Int) -> Bool? {
         return logic?.checkAnswer(userSelectedIndex)
+    }
+    
+    func saveData(resultScore: [String], key: String) {
+        defaults.set(resultScore, forKey: key)
+    }
+    
+    func loadData(key: String) -> [String] {
+        let scoreList = defaults.array(forKey: key) as? [String] ?? [String]()
+        return scoreList
     }
     
 }

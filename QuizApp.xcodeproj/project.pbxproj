@@ -12,7 +12,6 @@
 		A936D77CCD50BE4B7D457DC5 /* Pods_QuizAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB52FA66A9A5C7D1634259C /* Pods_QuizAppTests.framework */; };
 		D01AE2B427DE3542004CCAA1 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01AE2B327DE3542004CCAA1 /* CollectionViewController.swift */; };
 		D01AE2B627DE3E6F004CCAA1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01AE2B527DE3E6F004CCAA1 /* CollectionViewCell.swift */; };
-		D02D5B2327E880520036402C /* StoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D5B2227E880520036402C /* StoreData.swift */; };
 		D045B68127E652AD00A79558 /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = D045B68027E652AD00A79558 /* confetti.json */; };
 		D056A3B127B42B5F007E25F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056A3B027B42B5F007E25F4 /* AppDelegate.swift */; };
 		D056A3B327B42B5F007E25F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056A3B227B42B5F007E25F4 /* SceneDelegate.swift */; };
@@ -61,7 +60,6 @@
 		BDADD690B81E5A13C376C62C /* Pods-QuizApp-QuizAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizApp-QuizAppUITests.release.xcconfig"; path = "Target Support Files/Pods-QuizApp-QuizAppUITests/Pods-QuizApp-QuizAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D01AE2B327DE3542004CCAA1 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		D01AE2B527DE3E6F004CCAA1 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		D02D5B2227E880520036402C /* StoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreData.swift; sourceTree = "<group>"; };
 		D045B68027E652AD00A79558 /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = confetti.json; path = ../confetti.json; sourceTree = "<group>"; };
 		D045B68527E6532400A79558 /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = confetti.json; path = QuizApp/../confetti.json; sourceTree = "<group>"; };
 		D056A3AD27B42B5F007E25F4 /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +145,6 @@
 			children = (
 				D0D4398A27D5D72D00157C92 /* QuizData.swift */,
 				D0D4399227D7DC7700157C92 /* Logic.swift */,
-				D02D5B2227E880520036402C /* StoreData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -503,7 +500,6 @@
 				D05A386927E0B3DA00282446 /* BundleExtension.swift in Sources */,
 				D01AE2B427DE3542004CCAA1 /* CollectionViewController.swift in Sources */,
 				D0D4399327D7DC7700157C92 /* Logic.swift in Sources */,
-				D02D5B2327E880520036402C /* StoreData.swift in Sources */,
 				D0D4398B27D5D72D00157C92 /* QuizData.swift in Sources */,
 				D056A3B327B42B5F007E25F4 /* SceneDelegate.swift in Sources */,
 				D0F7A2D027F714DE008BEE85 /* QuizViewModel.swift in Sources */,
