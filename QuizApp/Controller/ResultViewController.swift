@@ -21,22 +21,30 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        animationView = .init(name: "confetti")
-        animationView?.frame = CGRect(x: 0, y: 0, width: 470, height: 1100)
-        view.addSubview(animationView!)
-        animationView?.play()
-        
-        self.navigationItem.hidesBackButton = true //back tuşunu gizledim soru cevaplama ekranına geri gidilmeyecek
-        resultScoreLabel.text = resultScore
-        
-        
        
+        setupAnimastion()
+        playAnimation()
+        updateUI()
     }
+  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         scoreList.append(resultScore!)
         self.userDefaultsSaveData()
         self.userDefaultsLoadData()
+    }
+    func setupAnimastion() {
+        animationView = .init(name: "confetti")
+        animationView?.frame = CGRect(x: 0, y: 0, width: 470, height: 1100)
+        view.addSubview(animationView!)
+    }
+    func playAnimation() {
+        animationView?.play()
+    }
+    
+    func updateUI() {
+        self.navigationItem.hidesBackButton = true //back tuşunu gizledim soru cevaplama ekranına geri gidilmeyecek
+        resultScoreLabel.text = resultScore
     }
     
     func userDefaultsSaveData() {
