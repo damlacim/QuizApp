@@ -21,59 +21,43 @@ class ViewController: UIViewController { // 1
     
     
     //MARK: Private Variables
-    private let api = NetworkService()
-    private var logic: Logic?
+    private var viewmodel = QuizViewModel()
     private var counter = 30
-     var timer: Timer?
-    
-    
-    
+     
     //MARK: Global Variables
-    
+    var timer: Timer?
     
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        fetchData()
+        viewmodel.logic?.delegate = self
+    
+        //bindUI()
         
-        
-        
-        let url = URL(string: "https://quizapi.io/api/v1/questions?apiKey=PgtZ92pOzQjokad7tqq89vwsisdqoxpjgHBugbnR&category=linux&difficulty=Easy&limit=10")!
-        
-        api.callApi(url: url,
-                    object: [QuizData].self) { [weak self] model, error in
-            guard let self = self else {
-                return
-            }
-            var array: [QuizData]
-            if model == nil {
-                array = Bundle.main.decode([QuizData].self, from: "DataFile")
-                return
-            } else {
-                 array =  (model as! [QuizData]).filter({$0.correctAnswer != nil})
-            }
-            
-            self.logic = Logic(data:array)
-            self.bindUI()
-            self.logic?.delegate = self
-            
-           
-        }
-        self.startTimer()
+        startTimer()
         
     }
     
     //MARK: Methods
+    
+    func fetchData() {
+        viewmodel.networkService()
+        
+    }
+    
     @objc private func bindUI() {
-        let model = logic?.nextQuestion()
+        let model = viewmodel.nextQuestion()
         questionLabel.text = model?.question
         updateButton()
-        scoreLabel.text = "Score: \(logic!.getScore())"
+        scoreLabel.text = "Score: \(viewmodel.getScore())"
         clearBackground()
         updateTimer()
     }
     
     private func updateButton() {
-        let answerChoices = logic?.getAnswer()
+        let answerChoices = viewmodel.getAnswer()
         buttonC1.setTitle(answerChoices?.answerA, for: .normal)
         buttonC2.setTitle(answerChoices?.answerB, for: .normal)
         buttonC3.setTitle(answerChoices?.answerC, for: .normal)
@@ -124,15 +108,11 @@ class ViewController: UIViewController { // 1
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         
-        let userGotItRight = logic!.checkAnswer(sender.tag)
+        let userGotItRight = viewmodel.checkAnswer(sender.tag)
         if userGotItRight == true {
             sender.backgroundColor = UIColor.green
-           
-            
         } else {
             sender.backgroundColor = UIColor.red
-            
-            
         }
         
         Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(bindUI), userInfo: nil, repeats: false)
