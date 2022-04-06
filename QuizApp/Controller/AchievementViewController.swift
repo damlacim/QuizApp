@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AchievementViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+class AchievementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     

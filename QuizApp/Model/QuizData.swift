@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//struct conforms to the Decodable protocol and that means that the QuizData turned into a type that can decode itself from an external representation namely the JSON representation
 
 struct QuizData: Codable {
     
@@ -16,12 +15,11 @@ struct QuizData: Codable {
     let correctAnswers: CorrectAnswers
     let correctAnswer: String?
     
- 
     enum CodingKeys: String, CodingKey {
         case id, question
         case answers
         case correctAnswers = "correct_answers" // 2 true
-        case correctAnswer = "correct_answer"//2
+        case correctAnswer = "correct_answer"// 2
     }
  
 }

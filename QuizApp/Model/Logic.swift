@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol LogicDelegate : AnyObject {
+protocol LogicDelegate: AnyObject {
     func finishQuestions()
 }
 
@@ -20,13 +20,12 @@ struct Logic {
     
     weak var delegate: LogicDelegate?
     
-    
     // MARK: Life Cycle
     init(data: [QuizData]) {
         self.quiz = data
     }
     
-    // MARK: Functions
+    // MARK: Methods
     func getQuestionText () -> String {
         return quiz[questionNumber].question
     }
@@ -35,7 +34,6 @@ struct Logic {
         return quiz[questionNumber].answers
     }
     
-    
     func getScore() -> Int {
         return score
     }
@@ -43,8 +41,7 @@ struct Logic {
     mutating func nextQuestion() -> QuizData {
         if questionNumber + 1 < quiz.count {
             questionNumber += 1
-        }
-        else {
+        } else {
             delegate?.finishQuestions()
         }
         return quiz[questionNumber]
@@ -59,8 +56,7 @@ struct Logic {
             score += 1
            
             return true
-        }
-        else {
+        } else {
             return false
         }
     }

@@ -8,9 +8,10 @@
 import UIKit
 // class = referance type
 // struct = value type
+
 class ViewController: UIViewController { // 1
     
-    //MARK: IBOutlets
+    // MARK: IBOutlets
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var buttonC1: UIButton!
@@ -19,28 +20,23 @@ class ViewController: UIViewController { // 1
     @IBOutlet weak var buttonC4: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     
-    
-    //MARK: Private Variables
+    // MARK: Private Variables
     private var viewmodel = QuizViewModel()
     private var counter = 30
      
-    //MARK: Global Variables
-    var timer: Timer?
+    // MARK: Global Variables
+    var timer: Timer!
     
-    //MARK: Life Cycle
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     
         fetchData()
         viewmodel.delegate = self
-    
-        //bindUI()
-        
         startTimer()
-        
     }
     
-    //MARK: Methods
+    // MARK: Methods
     
     func fetchData() {
         viewmodel.networkService()
@@ -75,10 +71,10 @@ class ViewController: UIViewController { // 1
     func startTimer() {
         timer =  Timer.scheduledTimer(
             timeInterval: TimeInterval(1.0),
-            target      : self,
-            selector    : #selector(self.updateTimer),
-            userInfo    : nil,
-            repeats     : true)
+            target: self,
+            selector: #selector(self.updateTimer),
+            userInfo: nil,
+            repeats: true)
     }
     
     @objc func updateTimer() {
@@ -86,24 +82,23 @@ class ViewController: UIViewController { // 1
         if counter > 0 {
             counter -= 1
             timerLabel?.text = "Time:\(counter)"
-        }
-        else {
-            timer?.invalidate()
+        } else {
+            timer!.invalidate()
+            timer = nil
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
     
-    func goToResultPage() { //result sayfası için yönlendirme
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) //hangi storyboardda olduğumu belirttim
-        //gidilecek view controller
-        let goToResult = storyboard.instantiateViewController(withIdentifier: "resultViewControllerID") as! ResultViewController
-        let score = self.scoreLabel.text //gönderilecek veriyi aldım
-        goToResult.resultScore = score //verinin gideceği sınıftan nesne oluşturdum ve veriyi atadım
-        self.navigationController?.pushViewController(goToResult, animated: true) //yönlendirme yaptım
+    func goToResultPage() { // result sayfası için yönlendirme
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) // hangi storyboardda olduğumu belirttim
+        // gidilecek view controller
+        let goToResult = storyboard.instantiateViewController(withIdentifier: "resultViewControllerID") as? ResultViewController
+        let score = self.scoreLabel.text // gönderilecek veriyi aldım
+        goToResult!.resultScore = score // verinin gideceği sınıftan nesne oluşturdum ve veriyi atadım
+        self.navigationController?.pushViewController(goToResult!, animated: true) // yönlendirme yaptım
     }
    
-    
-    //MARK: IBActions
+    // MARK: IBActions
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         
@@ -125,4 +120,8 @@ extension ViewController: QuizViewModelDelegate {
         goToResultPage()
     }
 }
-
+extension ViewController: QuizViewModelBindUI {
+    func updateUI() {
+        bindUI()
+    }
+}

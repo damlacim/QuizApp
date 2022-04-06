@@ -9,20 +9,19 @@ import UIKit
 import Lottie
 
 class ResultViewController: UIViewController {
-    
+    // MARK: IBOutlet
     @IBOutlet weak var resultScoreLabel: UILabel!
-  
+    // MARK: Variables
     var viewmodel = QuizViewModel()
     var resultScore: String?
     var animationView: AnimationView?
-    var scoreList: [String] = []
-    var resultScoreList: [String] = []
+    var scoreList = [String]()
+    var resultScoreList =  [String]()
     
-    
+    // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        setupAnimastion()
+        setupAnimation()
         playAnimation()
         updateUI()
     }
@@ -33,7 +32,9 @@ class ResultViewController: UIViewController {
         self.userDefaultsSaveData()
         self.userDefaultsLoadData()
     }
-    func setupAnimastion() {
+    
+    // MARK: Methods
+    func setupAnimation() {
         animationView = .init(name: "confetti")
         animationView?.frame = CGRect(x: 0, y: 0, width: 470, height: 1100)
         view.addSubview(animationView!)
@@ -41,9 +42,8 @@ class ResultViewController: UIViewController {
     func playAnimation() {
         animationView?.play()
     }
-    
     func updateUI() {
-        self.navigationItem.hidesBackButton = true //back tuşunu gizledim soru cevaplama ekranına geri gidilmeyecek
+        self.navigationItem.hidesBackButton = true // back tuşunu gizledim soru cevaplama ekranına geri gidilmeyecek
         resultScoreLabel.text = resultScore
     }
     
@@ -53,14 +53,10 @@ class ResultViewController: UIViewController {
     func userDefaultsLoadData() {
        resultScoreList = viewmodel.loadData(key: "new score")
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToAchievement" {
-            let achievementView = segue.destination as! AchievementViewController
-            achievementView.resultScoreList = resultScoreList
+            let achievementView = segue.destination as? AchievementViewController
+            achievementView!.resultScoreList = resultScoreList
         }
     }
 }
-    
-
-

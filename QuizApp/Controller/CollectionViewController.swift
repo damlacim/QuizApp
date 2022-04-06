@@ -15,7 +15,6 @@ struct Categories {
 
 class CollectionViewController: UICollectionViewController {
     
-   
     var category: [Categories] = [Categories]()
 
     override func viewDidLoad() {
@@ -23,7 +22,7 @@ class CollectionViewController: UICollectionViewController {
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             
-            let rowElements : CGFloat = 2
+            let rowElements: CGFloat = 2
             let space: CGFloat = 5
             let sumSpace = space * (rowElements - 1)
             let itemSpace = sumSpace / rowElements
@@ -31,31 +30,30 @@ class CollectionViewController: UICollectionViewController {
             let height = width
             
             layout.itemSize = CGSize(width: width, height: height)
-            //itemlar arası boşluğu ayarlar
+            // itemlar arası boşluğu ayarlar
             layout.minimumInteritemSpacing = space
-            //satırlar arası boşluğu ayarlar
+            // satırlar arası boşluğu ayarlar
             layout.minimumLineSpacing = space
         }
         
-        let c1 = Categories(category: "Linux")
-        let c2 = Categories(category: "Bash")
-        let c3 = Categories(category: "Docker")
-        let c4 = Categories(category: "SQL")
-        let c5 = Categories(category: "CMS")
-        let c6 = Categories(category: "Code")
-        let c7 = Categories(category: "DevOps")
-        let c8 = Categories(category: "Uncategorized")
+        let cat1 = Categories(category: "Linux")
+        let cat2 = Categories(category: "Bash")
+        let cat3 = Categories(category: "Docker")
+        let cat4 = Categories(category: "SQL")
+        let cat5 = Categories(category: "CMS")
+        let cat6 = Categories(category: "Code")
+        let cat7 = Categories(category: "DevOps")
+        let cat8 = Categories(category: "Uncategorized")
         
-        category.append(c1)
-        category.append(c2)
-        category.append(c3)
-        category.append(c4)
-        category.append(c5)
-        category.append(c6)
-        category.append(c7)
-        category.append(c8)
+        category.append(cat1)
+        category.append(cat2)
+        category.append(cat3)
+        category.append(cat4)
+        category.append(cat5)
+        category.append(cat6)
+        category.append(cat7)
+        category.append(cat8)
 
-        
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -78,6 +76,4 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "quiz screen", sender: self)
     }
-    
-    
 }

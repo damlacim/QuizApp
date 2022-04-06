@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-
 /* Error Handler (Enum)
  
  ResonseError {
@@ -27,15 +25,12 @@ import Foundation
  2 - Maping
  3 - Responsse (T?, Response?)
  */
-
-
-
 final class NetworkService {
     
     enum ResponseError: Error {
-        case Unauthenticated
-        case NoQuestionsFound
-        case Unknown
+        case unauthenticated
+        case noQuestionsFound
+        case unknown
         case decodingError(Error)
     }
     
@@ -44,9 +39,9 @@ final class NetworkService {
     func callApi<T>(url: URL,
                     object: T.Type,
                     handler: @escaping CompletionHandler) where T: Decodable {
-        //Create a URLSession
+        // Create a URLSession
         let session = URLSession(configuration: .default)
-        //Give URLSession a task
+        // Give URLSession a task
         let task = session.dataTask(with: url) { data, response, error in
             if let error = error {
                 handler(nil, .decodingError(error))
@@ -59,20 +54,20 @@ final class NetworkService {
                         self.parseJSON(object: object, data: safeData, handler: handler)
                     }
                 case 401:
-                    handler(nil, .Unauthenticated)
+                    handler(nil, .unauthenticated)
                 default:
-                    handler(nil, .Unknown)
+                    handler(nil, .unknown)
                 }
             }
         }
-        //Start the task
+        // Start the task
         task.resume()
     }
     
     func parseJSON<T>(object: T.Type,
                       data: Data,
                       handler: @escaping CompletionHandler) where T: Decodable {
-        //json verilerini ayrıştırcaz
+        // json verilerini ayrıştırcaz
         
         do {
             let baseResponse = try JSONDecoder().decode(T.self, from: data)
@@ -81,7 +76,7 @@ final class NetworkService {
             }
             
         } catch (let error) {
-            //hata verirse yakalarız
+            // hata verirse yakalarız
             DispatchQueue.main.async {
                 handler(nil, .decodingError(error))
             }
