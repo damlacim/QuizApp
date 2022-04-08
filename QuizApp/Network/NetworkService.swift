@@ -27,6 +27,8 @@ import Foundation
  */
 final class NetworkService {
     
+    // MARK: Enum
+    
     enum ResponseError: Error {
         case unauthenticated
         case noQuestionsFound
@@ -35,6 +37,8 @@ final class NetworkService {
     }
     
     typealias CompletionHandler = ((Decodable?, ResponseError?) -> Void)
+    
+    // MARK: Methods
     
     func callApi<T>(url: URL,
                     object: T.Type,

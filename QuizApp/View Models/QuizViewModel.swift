@@ -31,7 +31,7 @@ class QuizViewModel {
         
         let url = URL(string: "https://quizapi.io/api/v1/questions?apiKey=PgtZ92pOzQjokad7tqq89vwsisdqoxpjgHBugbnR&category=linux&difficulty=Easy&limit=10")!
         
-        api.callApi(url: url, object: [QuizData].self) { [weak self] model, error in
+        api.callApi(url: url, object: [QuizData].self) { [weak self] model, _ in
             
             guard let self = self else {
                 return
@@ -80,7 +80,9 @@ class QuizViewModel {
         return scoreList
     }
 }
+
 // MARK: Extension
+
 extension QuizViewModel: LogicDelegate {
     func finishQuestions() {
         delegate?.fetched()

@@ -21,7 +21,7 @@ class ViewController: UIViewController { // 1
     @IBOutlet weak var timerLabel: UILabel!
     
     // MARK: Private Variables
-    private var viewmodel = QuizViewModel()
+    private var viewModel = QuizViewModel()
     private var counter = 30
      
     // MARK: Global Variables
@@ -32,27 +32,27 @@ class ViewController: UIViewController { // 1
         super.viewDidLoad()
     
         fetchData()
-        viewmodel.delegate = self
+        viewModel.delegate = self
         startTimer()
     }
     
     // MARK: Methods
     
     func fetchData() {
-        viewmodel.networkService()
+        viewModel.networkService()
     }
     
     @objc private func bindUI() {
-        let model = viewmodel.nextQuestion()
+        let model = viewModel.nextQuestion()
         questionLabel.text = model?.question
         updateButton()
-        scoreLabel.text = "Score: \(viewmodel.getScore())"
+        scoreLabel.text = "Score: \(viewModel.getScore())"
         clearBackground()
         updateTimer()
     }
     
     private func updateButton() {
-        let answerChoices = viewmodel.getAnswer()
+        let answerChoices = viewModel.getAnswer()
         buttonC1.setTitle(answerChoices?.answerA, for: .normal)
         buttonC2.setTitle(answerChoices?.answerB, for: .normal)
         buttonC3.setTitle(answerChoices?.answerC, for: .normal)
@@ -102,7 +102,7 @@ class ViewController: UIViewController { // 1
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         
-        let userGotItRight = viewmodel.checkAnswer(sender.tag)
+        let userGotItRight = viewModel.checkAnswer(sender.tag)
         if userGotItRight == true {
             sender.backgroundColor = UIColor.green
         } else {
@@ -114,6 +114,8 @@ class ViewController: UIViewController { // 1
     }
     
 }
+
+// MARK: Extensions
 
 extension ViewController: QuizViewModelDelegate {
     func fetched() {

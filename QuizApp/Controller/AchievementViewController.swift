@@ -9,23 +9,34 @@ import UIKit
 
 class AchievementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: IBOutlets
     @IBOutlet weak var tableView: UITableView!
-    
-    var resultScoreList: [String] = []
     @IBOutlet weak var newQuizButton: UIBarButtonItem!
     
+    // MARK: Global Variable
+    var resultScoreList: [String] = []
+    
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+        setupDelegate()
         navigationItem.hidesBackButton = true
-        
     }
     
+    // MARK: Method
+    func setupDelegate() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    // MARK: IBAction
     @IBAction func newQuizPressed(_ sender: UIBarButtonItem) {
         navigationController?.popToRootViewController(animated: true)
     }
+}
+
+// MARK: Extension
+extension AchievementViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -40,5 +51,4 @@ class AchievementViewController: UIViewController, UITableViewDelegate, UITableV
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
         return cell
     }
-
 }

@@ -20,21 +20,8 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            
-            let rowElements: CGFloat = 2
-            let space: CGFloat = 5
-            let sumSpace = space * (rowElements - 1)
-            let itemSpace = sumSpace / rowElements
-            let width = collectionView.frame.width / rowElements - itemSpace
-            let height = width
-            
-            layout.itemSize = CGSize(width: width, height: height)
-            // itemlar arası boşluğu ayarlar
-            layout.minimumInteritemSpacing = space
-            // satırlar arası boşluğu ayarlar
-            layout.minimumLineSpacing = space
-        }
+        setupCollectionView()
+   
         
         let cat1 = Categories(category: "Linux")
         let cat2 = Categories(category: "Bash")
@@ -56,6 +43,29 @@ class CollectionViewController: UICollectionViewController {
 
     }
     
+    // MARK: Method
+    
+    func setupCollectionView() {
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+
+            let rowElements: CGFloat = 2
+            let space: CGFloat = 5
+            let sumSpace = space * (rowElements - 1)
+            let itemSpace = sumSpace / rowElements
+            let width = collectionView.frame.width / rowElements - itemSpace
+            let height = width
+            layout.itemSize = CGSize(width: width, height: height)
+            // itemlar arası boşluğu ayarlar
+            layout.minimumInteritemSpacing = space
+            // satırlar arası boşluğu ayarlar
+            layout.minimumLineSpacing = space
+        }
+    }
+    
+}
+
+// MARK: Extension
+extension CollectionViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -70,7 +80,6 @@ class CollectionViewController: UICollectionViewController {
             customCell.categoriLabel.text = category[indexPath.row].category
             return customCell
         }
-        
         return cell
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
