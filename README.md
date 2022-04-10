@@ -1,6 +1,6 @@
 # Quiz App
 
-This is the latest version of QuizApp. I used Angela Yu's Quizlet app as a template. I made some improvements to it.
+This is the latest version of QuizApp. I used Angela Yu's Quizlet app as a template. I made some improvements to it. I used MVVM pattern in app.
 
 ## Technologies
 
@@ -18,8 +18,6 @@ This is the latest version of QuizApp. I used Angela Yu's Quizlet app as a templ
 🕹 [Quiz API](https://quizapi.io/)
 
 ⏱ Timer
-
-🏛 MVVM Pattern
 
 🌠 Lottie Animations
 
