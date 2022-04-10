@@ -15,13 +15,20 @@ This is the latest version of QuizApp. I used Angela Yu's Quizlet app as a templ
 
 💾 UserDefaults
 
-🕹 [Quiz API](https://quizapi.io/)
+
 
 ⏱ Timer
+
+
+## Libraries
 
 🌠 Lottie Animations
 
 📚 SwiftLint
+
+## API for Network Request
+
+🕹 [Quiz API](https://quizapi.io/)
 
 ## Screenshot
 
